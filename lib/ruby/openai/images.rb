@@ -7,7 +7,7 @@ module OpenAI
       @access_token = access_token || ENV.fetch("OPENAI_ACCESS_TOKEN")
     end
     
-    def generate(parameters: {})
+    def generate(version: default_version, parameters: {})
       post(url: "/#{version}/images/generations", parameters: parameters)
     end
 
@@ -20,6 +20,10 @@ module OpenAI
         },
         body: parameters.to_json
       )
+    end
+    
+    def default_version
+      "v1".freeze
     end
   end
 end
