@@ -91,6 +91,21 @@ Hit the OpenAI API for a completion:
     => [", there lived a great"]
 ```
 
+### ChatGPT
+
+ChatGPT is a model that can be used to generate text in a conversational style. You can use it to [generate a response](https://platform.openai.com/docs/api-reference/chat/create) to a sequence of [messages](https://platform.openai.com/docs/guides/chat/introduction):
+
+```ruby
+response = client.chat(
+    parameters: {
+        model: "gpt-3.5-turbo", # Required.
+        messages: [{ role: "user", content: "Hello!"}], # Required.
+        temperature: 0.7,
+    })
+puts response.dig("choices", 0, "message", "content")
+# => "Hello! How may I assist you today?"
+```
+
 ### Files
 
 Put your data in a `.jsonl` file like this:

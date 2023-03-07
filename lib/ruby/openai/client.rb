@@ -23,6 +23,10 @@ module OpenAI
       end
     end
     
+    def chat(version: default_version, parameters: {})
+      post(url: "/#{version}/chat/completions", parameters: parameters)
+    end
+    
     def edits(version: default_version, parameters: {})
       post(url: "/#{version}/edits", parameters: parameters)
     end
