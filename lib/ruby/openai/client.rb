@@ -35,8 +35,8 @@ module OpenAI
       post(url: "/#{version}/moderations", parameters: parameters)
     end
 
-    def embeddings(engine:, version: default_version, parameters: {})
-      post(url: "/#{version}/engines/#{engine}/embeddings", parameters: parameters)
+    def embeddings(version: default_version, parameters: {})
+      post(url: "/#{version}/embeddings", parameters: parameters)
     end
 
     def engines
